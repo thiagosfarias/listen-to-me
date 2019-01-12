@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { LibraryPage } from '../pages/library/library';
+import { NowPlayingPage } from '../pages/now-playing/now-playing';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -17,6 +18,7 @@ import { AudioProvider } from '../providers/audio/audio';
     MyApp,
     LibraryPage,
     ContactPage,
+    NowPlayingPage,
     HomePage,
     TabsPage
   ],
@@ -29,6 +31,7 @@ import { AudioProvider } from '../providers/audio/audio';
     MyApp,
     LibraryPage,
     ContactPage,
+    NowPlayingPage,
     HomePage,
     TabsPage
   ],
