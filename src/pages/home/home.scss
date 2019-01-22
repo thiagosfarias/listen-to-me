@@ -4,8 +4,9 @@ page-home {
         color: color($colors, 'primary');
         text-transform: uppercase;
       }
-      ion-icon {
+      ion-avatar {
         font-size: 15rem;
+        image-resolution: 200px;
       }
     }
     #media-controls {

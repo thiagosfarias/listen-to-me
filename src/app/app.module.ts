@@ -5,19 +5,22 @@ import { MyApp } from './app.component';
 
 import { LibraryPage } from '../pages/library/library';
 import { NowPlayingPage } from '../pages/now-playing/now-playing';
-import { ContactPage } from '../pages/contact/contact';
+import { SettingsPage } from '../pages/settings/settings';
 import { HomePage } from '../pages/home/home';
+import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AudioProvider } from '../providers/audio/audio';
 
+
 @NgModule({
   declarations: [
     MyApp,
     LibraryPage,
-    ContactPage,
+    ProfilePage,
+    SettingsPage,
     NowPlayingPage,
     HomePage,
     TabsPage
@@ -29,8 +32,9 @@ import { AudioProvider } from '../providers/audio/audio';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    ProfilePage,
     LibraryPage,
-    ContactPage,
+    SettingsPage,
     NowPlayingPage,
     HomePage,
     TabsPage
