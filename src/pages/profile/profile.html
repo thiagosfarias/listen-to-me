@@ -14,15 +14,19 @@
 
 
 <ion-content padding>
-  <ion-avatar>
-    <img src="assets/imgs/profile-pic-thiago.jpeg">
-  </ion-avatar>
-  <p>Olá, 'username!</p>
+    <ion-card-header class="profile">
+      <ion-avatar widght = 25>
+        <img  class="profile-picture" src="assets/imgs/profile-pic-thiago.jpg">
+        <button class="follow-button" ion-button clear>Follow</button>
+      </ion-avatar>
+      <h3 class="username">Thiago</h3>
+    </ion-card-header>
 
   <ion-segment>
     <ion-segment-button value="Followers">12 Followers</ion-segment-button>
     <ion-segment-button value="Following">10 Following</ion-segment-button>
-    <ion-segment-button value="Library">Library</ion-segment-button>
   </ion-segment>
-
+  <ion-footer>
+      <button ion-button full (click)="logout()">Log out</button>
+  </ion-footer>
 </ion-content>

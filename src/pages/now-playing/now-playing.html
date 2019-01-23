@@ -25,7 +25,7 @@
       <ion-list no-lines>
           <button detail-none ion-item *ngFor="let track of tracks; let i = index;" (click)="track.playing ? pauseTrack(track) : playTrack(track)" [ngClass]="{ 'alternate': i % 2, 'playing': track.playing }">
               <ion-avatar item-left>
-                  <img [src]="'https://api.adorable.io/avatars/75/' + track.artist">
+                  <img src="/src/assets/imgs/Capa-AM_(oficial).jpeg">
                   <ion-spinner item-right *ngIf="track.playing" name="bubbles" item-left></ion-spinner>
               </ion-avatar>
               <h2>{{track.artist}}</h2>
@@ -35,7 +35,7 @@
   
 </ion-content>
 
-<ion-footer text-align ="center">
+<ion-footer>
     <ion-grid>
         <ion-row center>
             <ion-col width="33">

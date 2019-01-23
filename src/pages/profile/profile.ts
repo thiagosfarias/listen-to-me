@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoginPage } from '../login/login';
+
+
 
 /**
  * Generated class for the ProfilePage page.
@@ -20,6 +23,11 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+  }
+
+  logout(){
+    this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.popToRoot();
   }
 
 }
