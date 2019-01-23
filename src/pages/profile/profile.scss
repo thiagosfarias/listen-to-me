@@ -12,12 +12,21 @@ page-profile {
 
     h3.username{
         font-size: 18px;
-        text-align: left;
+        text-align: center;
+        margin-top: 0%;
     }
 
     .follow-button{
         font-size: 15px;
-        color: powderblue;
+        font-display: bold;
+        color: rgb(129, 212, 161);
+        text-align: center;
+    }
+
+    .log{
+        font-display: bold;
+        font-size: 15px;
+        color: darkred;
     }
 }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the RegisterPage page.
@@ -28,9 +29,11 @@ export class RegisterPage {
   }
 
   register(){
-    if(this.username.length==0 || this.password.length==0 || this.repassword.length==0){
-      alert("Please fill all fileds");
-    }
+      if(this.username == null || this.password == null || this.repassword == null){
+        alert("Please fill all fileds");
+      } else {
+        this.navCtrl.setRoot(TabsPage);
+        this.navCtrl.popToRoot();
+      }   
   }
-
 }

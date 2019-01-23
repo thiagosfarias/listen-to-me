@@ -1,6 +1,11 @@
 page-login {
     ion-title * {
-        margin-top: 30vh;
-        margin-bottom: 5vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    img.logo-name{
+        height: 50vw; 
+        width: 50vw;
     }
 }

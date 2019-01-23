@@ -12,40 +12,26 @@
 
 </ion-header>
 
-<ion-content fullscreen>
 
-    <ion-card ion-fixed>
-        <ion-card-header>
-            Artict Monkeys
-        </ion-card-header>
-        <ion-card-content>
-           Do I Wanna Know?
-        </ion-card-content>
-      </ion-card>
-      <ion-list no-lines>
-          <button detail-none ion-item *ngFor="let track of tracks; let i = index;" (click)="track.playing ? pauseTrack(track) : playTrack(track)" [ngClass]="{ 'alternate': i % 2, 'playing': track.playing }">
-              <ion-avatar item-left>
-                  <img src="/src/assets/imgs/Capa-AM_(oficial).jpeg">
-                  <ion-spinner item-right *ngIf="track.playing" name="bubbles" item-left></ion-spinner>
-              </ion-avatar>
-              <h2>{{track.artist}}</h2>
-              <p>{{track.title}}</p>
-          </button>
-      </ion-list>
-  
+<ion-content padding center>
+    <ion-avatar>
+        <img class = "album-cover" src="assets/imgs/Capa-AM_(oficial).jpeg">
+    </ion-avatar>
 </ion-content>
 
-<ion-footer>
+
+<ion-footer padding center text-center class="current-song">
     <ion-grid>
-        <ion-row center>
-            <ion-col width="33">
-                <button color="dark" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>
+        <h3 class="song-title"> Do I Wanna Know? - Arctic Monkeys</h3>
+        <ion-row>
+            <ion-col width="30">
+                <button class="skip-backward" ion-button clear icon-only><ion-icon name="skip-backward"></ion-icon></button>
             </ion-col>
-            <ion-col width="33">
-                <button  color="dark" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>
+            <ion-col width="30">
+                    <button class="play" ion-button clear icon-only><ion-icon name="play"></ion-icon></button>
             </ion-col>
-            <ion-col width="33">
-                <button color="dark" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>
+            <ion-col width="30">
+                <button class="skip-forward" ion-button clear icon-only><ion-icon name="skip-forward"></ion-icon></button>
             </ion-col>
         </ion-row>
     </ion-grid>

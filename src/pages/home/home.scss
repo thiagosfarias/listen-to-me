@@ -16,4 +16,11 @@ page-home {
         }
       }
     }
+    .avatar-thumbnail{
+        height: 8vw; 
+        width: 8vw; 
+        border: 2px solid rgb(118, 162, 175);
+        border-radius: 50%;
+        box-shadow: 0 0 5px gray;
+    }
   }
