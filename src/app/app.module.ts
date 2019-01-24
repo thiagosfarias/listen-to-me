@@ -15,6 +15,9 @@ import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { CloudProvider } from '../providers/cloud/cloud';
+import { AngularFireDatabaseModule } from 'angularfire2/database'
+
 
 const firebaseAuth = {
   apiKey: "AIzaSyDRDBX7nKK7kYbkaAU6l34nQ-4fyM_9Dd8",
@@ -41,7 +44,8 @@ const firebaseAuth = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseAuth),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,7 +63,8 @@ const firebaseAuth = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AudioProvider
+    AudioProvider,
+    CloudProvider,
   ]
 })
 export class AppModule {}
