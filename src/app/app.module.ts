@@ -17,6 +17,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { CloudProvider } from '../providers/cloud/cloud';
 import { AngularFireDatabaseModule } from 'angularfire2/database'
+import { UserNameProvider } from '../providers/user-name/user-name';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { ResetUserNamePage } from '../pages/reset-user-name/reset-user-name';
 
 
 const firebaseAuth = {
@@ -38,7 +41,9 @@ const firebaseAuth = {
     NowPlayingPage,
     HomePage,
     TabsPage,
-    RegisterPage
+    RegisterPage,
+    ResetPasswordPage,
+    ResetUserNamePage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,9 @@ const firebaseAuth = {
     NowPlayingPage,
     HomePage,
     TabsPage,
-    RegisterPage
+    RegisterPage,
+    ResetPasswordPage,
+    ResetUserNamePage
   ],
   providers: [
     StatusBar,
@@ -65,6 +72,7 @@ const firebaseAuth = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AudioProvider,
     CloudProvider,
+    UserNameProvider,
   ]
 })
 export class AppModule {}

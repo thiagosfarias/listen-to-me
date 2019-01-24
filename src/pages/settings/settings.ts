@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ResetUserNamePage } from '../reset-user-name/reset-user-name';
+import { ResetPasswordPage } from '../reset-password/reset-password';
 
 /**
  * Generated class for the SettingsPage page.
@@ -22,6 +24,13 @@ export class SettingsPage {
     console.log('ionViewDidLoad SettingsPage');
   }
 
+  resetUserName(){
+    this.navCtrl.push(ResetUserNamePage);
+  }
 
+  resetPassword(){
+    this.navCtrl.push(ResetPasswordPage);
+  }
+  
 
 }

@@ -24,13 +24,13 @@
     <ion-item>
       <button ion-button clear small>
         <ion-icon item-start name="at"></ion-icon>
-        <div class="option">Change username</div>
+        <div class="option" (click)="resetUserName()">Change username</div>
       </button>
     </ion-item>
     <ion-item>
       <button ion-button clear small>
         <ion-icon item-start name="key"></ion-icon>
-        <div class="option">Change password</div>
+        <div class="option"(click)="resetPassword()">Change password</div>
       </button>
     </ion-item>
   </div>

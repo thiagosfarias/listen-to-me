@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
-
-
-
+import { LoginPage } from '../login/login';
+import { UserNameProvider } from '../../providers/user-name/user-name';
 
 /**
  * Generated class for the ProfilePage page.
@@ -17,10 +16,13 @@ import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-  public nomeDoUsuario:string = "Thiago";
-  public followStatus:string = "Follow";
-  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
 
+  public username:string;
+  public followStatus:string = "Follow";
+  
+
+  constructor(private _userNameProvider: UserNameProvider, public navCtrl: NavController, public navParams: NavParams, public app: App) {
+      this.username = _userNameProvider.username;
   }
 
   ionViewDidLoad() {
@@ -35,5 +37,4 @@ export class ProfilePage {
   setFollowStatus(){
     this.followStatus = "Followed";
   }
-
 }

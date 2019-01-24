@@ -3,6 +3,7 @@ import { NavController, AlertController} from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { UserNameProvider } from '../../providers/user-name/user-name';
 
 @Component({
   selector: 'page-login',
@@ -13,7 +14,7 @@ export class LoginPage {
   @ViewChild('username') user;
   @ViewChild('password') password;
 
-  constructor(private alertCtrl: AlertController, private fire: AngularFireAuth, public navCtrl: NavController) {
+  constructor(private userNameProvider: UserNameProvider, private alertCtrl: AlertController, private fire: AngularFireAuth, public navCtrl: NavController) {
 
   }
 
@@ -37,7 +38,7 @@ export class LoginPage {
       console.log('got an error', error);
       this.alert('Login failed');
     })
-    
+    this.userNameProvider.username = this.user.value;
     console.log('Would sign in with ', this.user.value, this.password.value);
 
   }
@@ -45,5 +46,4 @@ export class LoginPage {
   goRegister() {
     this.navCtrl.push(RegisterPage);
   }
-
 }
