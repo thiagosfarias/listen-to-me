@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { NavController} from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, AlertController} from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'page-login',
@@ -9,17 +10,35 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class LoginPage {
 
-  username:string;
-  password:string;
+  @ViewChild('username') user;
+  @ViewChild('password') password;
 
-  constructor(public navCtrl: NavController) {
+  constructor(private alertCtrl: AlertController, private fire: AngularFireAuth, public navCtrl: NavController) {
 
   }
 
-  login(){
-    this.navCtrl.push(TabsPage);
-    console.log("Username: "+this.username);
-    console.log("Password: "+this.password);
+  alert(message: string) {
+    this.alertCtrl.create({
+      title: 'Info!',
+      subTitle: message,
+      buttons: ['OK']
+    }).present();
+  }
+
+  signInUser(){
+    this.fire.auth.signInAndRetrieveDataWithEmailAndPassword(this.user.value +'@gmail.com', this.password.value)
+    .then( data =>{
+      console.log('got some data', data);
+      this.alert('Successfully logged in');
+      this.navCtrl.push(TabsPage);
+    })
+    
+    .catch( error =>{
+      console.log('got an error', error);
+      this.alert('Login failed');
+    })
+    
+    console.log('Would sign in with ', this.user.value, this.password.value);
 
   }
 

@@ -13,8 +13,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AudioProvider } from '../providers/audio/audio';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
-
+const firebaseAuth = {
+  apiKey: "AIzaSyDRDBX7nKK7kYbkaAU6l34nQ-4fyM_9Dd8",
+  authDomain: "listen2me-e9f6f.firebaseapp.com",
+  databaseURL: "https://listen2me-e9f6f.firebaseio.com",
+  projectId: "listen2me-e9f6f",
+  storageBucket: "listen2me-e9f6f.appspot.com",
+  messagingSenderId: "590256246511"
+};
+ 
 @NgModule({
   declarations: [
     MyApp,
@@ -29,7 +39,9 @@ import { LoginPage } from '../pages/login/login';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseAuth),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
