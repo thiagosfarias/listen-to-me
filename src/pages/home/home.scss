@@ -16,11 +16,20 @@ page-home {
         }
       }
     }
+
+    .item-ios ion-thumbnail ion-img, .item-ios ion-thumbnail img {
+      width: 42px;
+      height: 42px;
+  }
     .avatar-thumbnail{
-        height: 8vw; 
-        width: 8vw; 
+        height: 5vw; 
+        width: 5vw; 
         border: 2px solid rgb(118, 162, 175);
         border-radius: 50%;
         box-shadow: 0 0 5px gray;
+    }
+
+    .time-posted{
+      text-align: right;
     }
   }

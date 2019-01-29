@@ -4,16 +4,14 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding color = "secondary">
+<ion-content padding color="secondary">
   <ion-card>
 
     <ion-item>
       <ion-thumbnail>
-        <img class = "avatar-thumbnail" src="assets/imgs/Capa-AM_(oficial).jpeg">
-        <p>{{nomeDoUsuario}}</p>
+        <img class="avatar-thumbnail" src="assets/imgs/user-png-images-4.png">
+        <h3>{{username}}, compartilhou nova playlist!</h3>
       </ion-thumbnail>
-      <h2>Arctic Monkeys</h2>
-      <p>AM • 2013</p>
     </ion-item>
     <ion-card-content>
       <p>Alguma mensagem que o usario queira digitar no momento do compartilhamento</p>
@@ -32,10 +30,10 @@
           <div>Share</div>
         </button>
       </ion-col>
-      <ion-col center text-center>
-        <ion-note>
-          10min ago
-        </ion-note>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="add-circle"></ion-icon>
+        </button>
       </ion-col>
     </ion-row>
   </ion-card>
