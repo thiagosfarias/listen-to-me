@@ -4,37 +4,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding color="secondary">
-  <ion-card>
-
-    <ion-item>
-      <ion-thumbnail>
+<ion-content>
+  <ion-list>
+    <button (click)="expandItem(item)" ion-item *ngFor="let item of items">
+      <ion-thumbnail item-start>
         <img class="avatar-thumbnail" src="assets/imgs/user-png-images-4.png">
-        <h3>{{username}}, compartilhou nova playlist!</h3>
+        <h2 class = "username">{{username}}, acabou de compartilhar uma nova playlist!</h2>
+        <expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
+        </expandable>
+        <button ion-button clear item-end>
+          View more
+        </button>
       </ion-thumbnail>
-    </ion-item>
-    <ion-card-content>
-      <p>Alguma mensagem que o usario queira digitar no momento do compartilhamento</p>
-    </ion-card-content>
-
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="play"></ion-icon>
-          <div>Play</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="share"></ion-icon>
-          <div>Share</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="add-circle"></ion-icon>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-card>
+    </button>
+  </ion-list>
 </ion-content>

@@ -20,6 +20,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database'
 import { UserNameProvider } from '../providers/user-name/user-name';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ResetUserNamePage } from '../pages/reset-user-name/reset-user-name';
+import { ExpandableComponent } from '../components/expandable/expandable';
+
+
 
 
 
@@ -44,7 +47,9 @@ const firebaseAuth = {
     TabsPage,
     RegisterPage,
     ResetPasswordPage,
-    ResetUserNamePage
+    ResetUserNamePage,
+    ExpandableComponent
+
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,8 @@ const firebaseAuth = {
     TabsPage,
     RegisterPage,
     ResetPasswordPage,
-    ResetUserNamePage
+    ResetUserNamePage,
+    ExpandableComponent
   ],
   providers: [
     StatusBar,
