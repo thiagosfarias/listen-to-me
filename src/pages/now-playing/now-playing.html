@@ -6,33 +6,36 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
-    <ion-title>Now Playing</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding center>
-    <ion-avatar>
-        <img class = "album-cover" src="assets/imgs/Capa-AM_(oficial).jpeg">
-    </ion-avatar>
-</ion-content>
-
-
-<ion-footer padding center text-center class="current-song">
-    <ion-grid>
-        <h3 class="song-title"> Do I Wanna Know? - Arctic Monkeys</h3>
-        <ion-row>
-            <ion-col width="30">
-                <button class="skip-backward" ion-button clear icon-only><ion-icon name="skip-backward"></ion-icon></button>
-            </ion-col>
-            <ion-col width="30">
-                    <button class="play" ion-button clear icon-only><ion-icon name="play"></ion-icon></button>
-            </ion-col>
-            <ion-col width="30">
-                <button class="skip-forward" ion-button clear icon-only><ion-icon name="skip-forward"></ion-icon></button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-</ion-footer>
+    <ion-navbar color="primary">
+      <ion-title>Now Playing</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding center>
+      <ion-avatar>
+          <img class = "album-cover" src="assets/imgs/disco.png">
+      </ion-avatar>
+  </ion-content>
+  
+  
+  <ion-footer padding center text-center class="current-song">
+      <ion-grid>
+          <h3 class="song-title"> Song - Artist</h3>
+          <ion-row>
+              <ion-col width="30">
+                  <button class="skip-backward" ion-button clear icon-only full (click) = "previousMusic()"><ion-icon name="skip-backward"></ion-icon></button>
+              </ion-col>
+              <ion-col width="30">
+                      <button class="play" ion-button clear icon-only full (click) = "buttonState()">
+                              <ion-icon name="play" *ngIf="!visible"></ion-icon>
+                              <ion-icon name="pause" *ngIf="visible"></ion-icon>
+                      </button>
+              </ion-col>
+              <ion-col width="30">
+                  <button class="skip-forward" ion-button clear icon-only full (click) = "nextMusic()"><ion-icon name="skip-forward"></ion-icon></button>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+  </ion-footer>

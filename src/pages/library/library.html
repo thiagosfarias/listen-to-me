@@ -12,8 +12,9 @@
   <div padding>
     <ion-segment [(ngModel)]="Library">
       <ion-segment-button value = "Albuns">Album</ion-segment-button>
-      <ion-segment-button value = "Artista">Artist</ion-segment-button>
-      <ion-segment-button value = "Músicas">Music</ion-segment-button>
+      <ion-segment-button value = "Artist">Artist</ion-segment-button>
+      <ion-segment-button value = "Musics">Music</ion-segment-button>
+      <ion-segment-button value = "Playlists">Playlist</ion-segment-button>
     </ion-segment>
   </div>
 
@@ -21,10 +22,10 @@
     <ion-list  *ngSwitchCase="Albuns">
       <ion-item>
         <ion-thumbnail item-start>
-          <img class="album-cover" src="assets/imgs/Capa-AM_(oficial).jpeg">
+          <img class="album-cover" src="assets/imgs/disco.png">
           </ion-thumbnail>
-          <h2 class="song-title">Arctic Monkeys</h2>
-          <p>AM • 2013</p>
+          <h2 class="song-title">Artist</h2>
+          <p>Album • Year</p>
           <button ion-button clear item-end>Play</button>
         </ion-item>
     </ion-list>

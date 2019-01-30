@@ -10,18 +10,18 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AudioProvider } from '../providers/audio/audio';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { CloudProvider } from '../providers/cloud/cloud';
 import { AngularFireDatabaseModule } from 'angularfire2/database'
 import { UserNameProvider } from '../providers/user-name/user-name';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ResetUserNamePage } from '../pages/reset-user-name/reset-user-name';
 import { ExpandableComponent } from '../components/expandable/expandable';
-
+import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
+import { NativeAudio } from '@ionic-native/native-audio/ngx'
+import { MusicControlProvider } from '../providers/music-control/music-control';
 
 
 
@@ -77,9 +77,10 @@ const firebaseAuth = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AudioProvider,
-    CloudProvider,
     UserNameProvider,
+    SmartAudioProvider,
+    NativeAudio,
+    MusicControlProvider
   ]
 })
 export class AppModule {}

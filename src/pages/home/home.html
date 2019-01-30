@@ -6,16 +6,23 @@
 
 <ion-content>
   <ion-list>
-    <button (click)="expandItem(item)" ion-item *ngFor="let item of items">
+    <button (click) = "expandItem(item)" ion-item *ngFor="let item of items">
       <ion-thumbnail item-start>
         <img class="avatar-thumbnail" src="assets/imgs/user-png-images-4.png">
-        <h2 class = "username">{{username}}, acabou de compartilhar uma nova playlist!</h2>
-        <expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
-        </expandable>
-        <button ion-button clear item-end>
-          View more
-        </button>
       </ion-thumbnail>
+        <h2 class = "username">{{username}}</h2>
+        <p>Compartilhou uma nova playlist!</p>
+        <expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
+            <br />
+            Winds of Destination - Angra
+            <br />
+            Post American World - Megadeth
+            <br />
+            The Day That Never Say Comes - Metallica
+            <br />
+            Six O'Clock - Dream Theater
+            
+        </expandable>
     </button>
   </ion-list>
 </ion-content>

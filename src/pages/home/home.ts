@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { UserNameProvider } from '../../providers/user-name/user-name';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +12,10 @@ export class HomePage {
   itemExpanded: boolean = true;
   itemExpandHeight: number = 200;
 
-  constructor(public navCtrl: NavController) {
+  public username:string;
+
+  constructor(private _userNameProvider: UserNameProvider, public navCtrl: NavController) {
+    this.username = _userNameProvider.username;
     this.items = [{expanded: false},
       {expanded: false},
       {expanded: false},

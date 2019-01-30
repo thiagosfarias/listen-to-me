@@ -11,4 +11,3 @@ import { NowPlayingPage } from './now-playing';
   ],
 })
 export class NowPlayingPageModule {}
-

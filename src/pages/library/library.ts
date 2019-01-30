@@ -10,5 +10,4 @@ export class LibraryPage {
   constructor(public navCtrl: NavController) {
 
   }
-
 }

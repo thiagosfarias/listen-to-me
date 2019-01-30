@@ -17,19 +17,19 @@ page-home {
       }
     }
 
-    .item-ios ion-thumbnail ion-img, .item-ios ion-thumbnail img {
-      width: 42px;
-      height: 42px;
-  }
-    .avatar-thumbnail{
-        height: 5vw; 
-        width: 5vw; 
+    img.avatar-thumbnail{
+        height: 12vw; 
+        width: 12vw; 
         border: 2px solid rgb(118, 162, 175);
         border-radius: 50%;
         box-shadow: 0 0 5px gray;
     }
 
-    .time-posted{
-      text-align: right;
+    h2.username{
+      font-size: 1.4rem;
+      text-align: left;
+    }
+    br{
+      font-size: 12px;
     }
   }
