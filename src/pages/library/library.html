@@ -10,24 +10,54 @@
   <ion-searchbar (ionInput)="getItems($event)"> Digite sua busca...</ion-searchbar>
 
   <div padding>
-    <ion-segment [(ngModel)]="Library">
-      <ion-segment-button value = "Albuns">Album</ion-segment-button>
-      <ion-segment-button value = "Artist">Artist</ion-segment-button>
-      <ion-segment-button value = "Musics">Music</ion-segment-button>
-      <ion-segment-button value = "Playlists">Playlist</ion-segment-button>
+    <ion-segment [(ngModel)]="options" color="secondary" (ionChange)="segmentChanged(segment, $event)">
+      <ion-segment-button value="musics">
+        Musics
+      </ion-segment-button>
+      <ion-segment-button value="playlists">
+        Playlists
+      </ion-segment-button>
+      <ion-segment-button value="new-playlists">
+        New Playlist
+      </ion-segment-button>
     </ion-segment>
   </div>
+  
+  
+  <div [ngSwitch]="options">
 
-  <div [ngSwitch]="Library">
-    <ion-list  *ngSwitchCase="Albuns">
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img class="album-cover" src="assets/imgs/disco.png">
+    <!--show all the music in the library-->
+    <ion-list *ngSwitchCase="'musics'">
+      <ion-item-sliding>
+        <ion-item *ngFor="let m of musics|async">
+          <ion-thumbnail item-start>
+            <img src="assets/imgs/disco.png" class="album-cover">
           </ion-thumbnail>
-          <h2 class="song-title">Artist</h2>
-          <p>Album • Year</p>
-          <button ion-button clear item-end>Play</button>
+          <h1 class="song-tittle">{{m.title}}</h1>
+          <p>{{m.artist}}</p>
+          <button ion-button item-end small (click)="pushPage(m.url)">PLAY</button>
         </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+
+    <!--show the playlists created-->
+    <ion-list *ngSwitchCase="'playlists'">
+        <ion-item-sliding>
+          <ion-item>
+            Playlist
+          </ion-item>
+        </ion-item-sliding>
+      </ion-list>
+
+    <!--create a new playlist-->
+    <ion-list *ngSwitchCase="'new-playlists'">
+        <ion-item-sliding>
+            <ion-item>
+              New playlist
+            </ion-item>
+          </ion-item-sliding>
     </ion-list>
   </div>
+
 </ion-content>
+

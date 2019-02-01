@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { UserNameProvider } from '../../providers/user-name/user-name';
+import { NowPlayingPage } from '../now-playing/now-playing';
 
 @Component({
   selector: 'page-home',
@@ -27,6 +28,10 @@ export class HomePage {
 
   expandItem(item){
     item.expanded = !item.expanded;
+  }
+
+  goToNowPlayer(){
+    this.navCtrl.push(NowPlayingPage);
   }
 
 }

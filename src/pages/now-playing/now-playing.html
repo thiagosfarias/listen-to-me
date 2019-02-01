@@ -19,22 +19,22 @@
       </ion-avatar>
   </ion-content>
   
-  
+
   <ion-footer padding center text-center class="current-song">
       <ion-grid>
-          <h3 class="song-title"> Song - Artist</h3>
+          <h3 class="song-title"> </h3>
           <ion-row>
               <ion-col width="30">
-                  <button class="skip-backward" ion-button clear icon-only full (click) = "previousMusic()"><ion-icon name="skip-backward"></ion-icon></button>
+                  <button class="nowplaying-button" ion-button clear icon-only full (click) = "previousMusic()"><ion-icon name="skip-backward"></ion-icon></button>
               </ion-col>
               <ion-col width="30">
-                      <button class="play" ion-button clear icon-only full (click) = "buttonState()">
+                      <button class="nowplaying-button" ion-button clear icon-only full (click) = "buttonState()">
                               <ion-icon name="play" *ngIf="!visible"></ion-icon>
                               <ion-icon name="pause" *ngIf="visible"></ion-icon>
                       </button>
               </ion-col>
               <ion-col width="30">
-                  <button class="skip-forward" ion-button clear icon-only full (click) = "nextMusic()"><ion-icon name="skip-forward"></ion-icon></button>
+                  <button class="nowplaying-button" ion-button clear icon-only full (click) = "nextMusic()"><ion-icon name="skip-forward"></ion-icon></button>
               </ion-col>
           </ion-row>
       </ion-grid>

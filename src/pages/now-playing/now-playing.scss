@@ -12,7 +12,7 @@ page-now-playing {
 
     h3.song-tittle{
         font-size: 12px;
-        color: black;
+        color: white;
     }
 
     .player{
@@ -23,5 +23,13 @@ page-now-playing {
             -o-filter: blur(10px);
             -ms-filter: blur(10px);
             filter: blur(10px);
+    }
+
+    ion-content{
+        background-color: rgb(212, 137, 137);
+    }
+
+    .nowplaying-button{
+        color: black;
     }
 }

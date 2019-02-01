@@ -22,9 +22,10 @@ import { ExpandableComponent } from '../components/expandable/expandable';
 import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
 import { NativeAudio } from '@ionic-native/native-audio/ngx'
 import { MusicControlProvider } from '../providers/music-control/music-control';
-
-
-
+import { File } from '@ionic-native/file/ngx';
+import { FileChooser } from '@ionic-native/file-chooser/ngx';
+import { EditProfilePage } from '../pages/edit-profile/edit-profile';
+import { UrlMusicProvider } from '../providers/url-music/url-music';
 
 const firebaseAuth = {
   apiKey: "AIzaSyDRDBX7nKK7kYbkaAU6l34nQ-4fyM_9Dd8",
@@ -47,6 +48,7 @@ const firebaseAuth = {
     TabsPage,
     RegisterPage,
     ResetPasswordPage,
+    EditProfilePage,
     ResetUserNamePage,
     ExpandableComponent
 
@@ -70,6 +72,7 @@ const firebaseAuth = {
     TabsPage,
     RegisterPage,
     ResetPasswordPage,
+    EditProfilePage,
     ResetUserNamePage,
     ExpandableComponent
   ],
@@ -80,7 +83,9 @@ const firebaseAuth = {
     UserNameProvider,
     SmartAudioProvider,
     NativeAudio,
-    MusicControlProvider
+    FileChooser, File,
+    MusicControlProvider,
+    UrlMusicProvider
   ]
 })
 export class AppModule {}

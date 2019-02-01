@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToolbarTitle } from 'ionic-angular';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
+import { UrlMusicProvider } from '../../providers/url-music/url-music';
+import { FirebaseDatabase } from 'angularfire2';
+
 
 /**
  * Generated class for the NowPlayingPage page.
@@ -16,51 +18,45 @@ import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
   templateUrl: 'now-playing.html',
 })
 export class NowPlayingPage {
-
-  JCinfo = "start V1.1";
-  JCneedLoadFlag = true;
-  visible: any;
+  @ViewChild('tittle') tittle;
+  @ViewChild('artist') artist;
+  visible: boolean = true;
   contador: number = 0;
-
-  constructor(private audio: SmartAudioProvider) {
+  
+  constructor(private url: UrlMusicProvider, private audio: SmartAudioProvider, public navParams: NavParams) {
+    let reference = navParams.get('reference');
+    console.log(reference);
+    if(reference != undefined){
+      this.playMusic(reference);
+    }
   }
-
+  
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NowPlayingPage');
+    console.log();
   }
 
   buttonState(){
     this.visible = !this.visible;
     if(this.contador == 0){
-      this.playMusic();
     } else if(this.contador%2 != 0){
       this.stopMusic();
     } else if(this.contador%2 == 0){
       this.resumeMusic();
     }
+
   }
 
-  playMusic(){
-    this.audio.preload('mySongId', 'assets/musics/04 Brooklyn Baby.mp3')
+  playMusic(reference){
+    this.audio.preload('mySongId', reference);
     this.audio.play('mySongId');
     this.contador++;
   }
-
   stopMusic(){
     this.audio.stop('mySongId');
-    this.contador++;
-
+    this.contador = 2;
   }
-
   resumeMusic(){
     this.audio.resume('mySongId');
-    this.contador++;
-  }
-  nextMusic(){
-
-  }
-
-  previousMusic(){
-    
+    this.contador = 1;
   }
 }
