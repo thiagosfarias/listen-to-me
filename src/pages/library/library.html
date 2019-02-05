@@ -7,7 +7,6 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar (ionInput)="getItems($event)"> Digite sua busca...</ion-searchbar>
 
   <div padding>
     <ion-segment [(ngModel)]="options" color="secondary" (ionChange)="segmentChanged(segment, $event)">
@@ -29,13 +28,13 @@
     <!--show all the music in the library-->
     <ion-list *ngSwitchCase="'musics'">
       <ion-item-sliding>
-        <ion-item *ngFor="let m of musics|async">
+        <ion-item *ngFor="let m of _musics">
           <ion-thumbnail item-start>
             <img src="assets/imgs/disco.png" class="album-cover">
           </ion-thumbnail>
           <h1 class="song-tittle">{{m.title}}</h1>
           <p>{{m.artist}}</p>
-          <button ion-button item-end small (click)="pushPage(m.url)">PLAY</button>
+          <button ion-button clear item-end (click)="pushPage(m)"><ion-icon name="play"></ion-icon></button>
         </ion-item>
       </ion-item-sliding>
     </ion-list>
@@ -43,20 +42,37 @@
     <!--show the playlists created-->
     <ion-list *ngSwitchCase="'playlists'">
         <ion-item-sliding>
-          <ion-item>
-            Playlist
-          </ion-item>
-        </ion-item-sliding>
+            <ion-item *ngFor="let m of _playlist">
+              <ion-thumbnail item-start>
+                <img src="assets/imgs/disco.png" class="playlist-cover">
+              </ion-thumbnail>
+              <h1 class="playlist">{{m.name}}</h1>
+              <button ion-button clear item-end (click)="pushPage(m.musics)"><ion-icon name="play"></ion-icon></button>
+              <button ion-button clear item-end><ion-icon name="share"></ion-icon></button>
+            </ion-item>
+          </ion-item-sliding>
       </ion-list>
 
     <!--create a new playlist-->
     <ion-list *ngSwitchCase="'new-playlists'">
-        <ion-item-sliding>
-            <ion-item>
-              New playlist
-            </ion-item>
-          </ion-item-sliding>
+      <ion-item>
+        <ion-label floating>Playlist Name</ion-label>
+        <ion-input type="text" #playlistname></ion-input>
+          <button ion-button item-end (click)="createNewPlaylist()"> CREATE </button>
+      </ion-item>
+      <ion-item-sliding>
+        <ion-item *ngFor="let m of _musics">
+          <ion-thumbnail item-start>
+            <img src="assets/imgs/disco.png" class="album-cover">
+          </ion-thumbnail>
+          <h1 class="song-tittle">{{m.title}}</h1>
+          <p>{{m.artist}}</p>
+          <button ion-button clear item-end (click)="addMusicsToPlaylist(m)"><ion-icon name="add"></ion-icon></button>
+        </ion-item>
+        
+      </ion-item-sliding>
     </ion-list>
+    
   </div>
 
 </ion-content>

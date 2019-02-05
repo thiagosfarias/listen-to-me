@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+
 import { Platform } from 'ionic-angular';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
@@ -15,67 +16,47 @@ export class SmartAudioProvider {
   audioType: string = 'html5';
   sounds: any = [];
   music: any;
+  state: number = 0;
+  key: string;
+  asset: string;
 
-  constructor(public nativeAudio: NativeAudio, platform: Platform) {
-    if (platform.is('cordova')) {
-      this.audioType = 'native';
-      
-    }
-  }
+  constructor(public nativeAudio: NativeAudio, platform: Platform) {}
 
   preload(key, asset) {
-    if (this.audioType === 'html5') {
-
-      let audio = {
-        key: key,
-        asset: asset,
-        type: 'html5'
-      };
-
-      this.sounds.push(audio);
-
-    } else {
-      
-      this.nativeAudio.preloadComplex(key, asset,1,1,0);
-
-      let audio = {
-        key: key,
-        asset: key,
-        type: 'native'
-      };
-
-      this.sounds.push(audio);
-    }
-
+    this.key = key;
+    this.asset = asset;
   }
 
   play(key) {
-
-    let audio = this.sounds.find((sound) => {
-      return sound.key === key;
-    });
-
-    if (audio.type === 'html5') {
-      this.music = new Audio(audio.asset);
-      this.music.play();
-
-    } else {
-
-      this.nativeAudio.play(audio.asset).then((res) => {
-        console.log(res);
-      }, (err) => {
-        console.log(err);
-      });
-
-    }
-
+    this.music = new Audio(this.asset);
+    this.music.load();
+    this.music.play();
+    this.music.loop = true;
   }
-  
-  stop(key){
+
+  pause(){
     this.music.pause();
   }
 
-  resume(key){
+  resume(){
     this.music.play();
   }
+
+  musicState(newstate){
+    this.music.preventDefault();
+    this.state = newstate;
+  }
+
+  nextMusic(arraylength){
+    if(this.state < arraylength){
+      this.state++;
+    }
+  }
+  
+  previousMusic(){
+    if(this.state > 0){
+      this.state--;
+    }
+  }
+
 }

@@ -6,26 +6,30 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item only (click) = "expandItem(item)" *ngFor="let item of items">
-      <ion-thumbnail item-start>
-        <img class="avatar-thumbnail" src="assets/imgs/user-png-images-4.png">
-      </ion-thumbnail>
-        <h2 class = "username">{{username}}</h2>
-        <p>Compartilhou uma nova playlist!</p>
-        <expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
+    <ion-item-sliding>
+      <ion-item *ngFor="let m of _playlist">
+        <button ion-item (click)="expandItem(item)"*ngFor="let item of items">
+          <ion-thumbnail item-start>
+            <img class="avatar-thumbnail" src="assets/imgs/user-png-images-4.png" />
+          </ion-thumbnail>
+          <h2 class="username">{{ m.user }}</h2>
+          <p>Criou uma nova playlist!</p>
+          <expandable
+            [expandHeight]="itemExpandHeight"
+            [expanded]="item.expanded"
+          >
             <div padding center>
               <ion-list>
                 <ion-item-sliding>
-                      <ion-item>
-                          <p item-start> Brooklyn Baby</p>
-                          <button ion-button item-end ion-button clear (click)="goToNowPlayer()">
-                            PLAY
-                          </button>
+                  <ion-item>
+                    <button item-start (click)="pushPage(m)">Go to Play</button>
                   </ion-item>
                 </ion-item-sliding>
               </ion-list>
-            </div>  
-        </expandable>
-    </button>
+            </div>
+          </expandable>
+        </button>
+      </ion-item>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
