@@ -48,13 +48,13 @@ export class SmartAudioProvider {
   }
 
   nextMusic(arraylength){
-    if(this.state < arraylength){
+    if(this.state+1 < arraylength && arraylength != 0){
       this.state++;
     }
   }
   
-  previousMusic(){
-    if(this.state > 0){
+  previousMusic(arraylength){
+    if(this.state > 0 && arraylength != 0){
       this.state--;
     }
   }

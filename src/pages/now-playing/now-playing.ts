@@ -95,7 +95,7 @@ export class NowPlayingPage {
   previousMusic(){
     if(this.isObject == 0){
       this.audio.pause();
-      this.audio.previousMusic();
+      this.audio.previousMusic(this.musics.length);
       this.title = this.musics[this.audio.state].title;
       this.artist = this.musics[this.audio.state].artist;
       this.playMusic(this.musics[this.audio.state]);
